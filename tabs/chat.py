@@ -13,8 +13,6 @@ def render_chat_tab(st_session_state, vs, model, language):
     if getattr(st_session_state, 'pending', None):
         q = st_session_state.pending
         ctx, srcs = build_context(vs, q)
-        with st.chat_message("user"):
-            st.markdown(q)
         with st.chat_message("assistant"):
             with st.spinner("Sto rispondendo..." if language == "Italiano" else "Thinking..."):
                 answer, used_model = llm_answer(q, language, model, ctx)
