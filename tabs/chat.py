@@ -16,8 +16,6 @@ def render_chat_tab(st_session_state, vs, model, language):
         ctx, srcs = build_context(vs, q)
         with st.chat_message("assistant"):
             with st.spinner("Sto rispondendo..." if language == "Italiano" else "Thinking..."):
-                answer, used_model = llm_answer(q, language, model, ctx)
-                st.markdown(answer)
                 st.caption(f"Model used: {used_model}")
                 with st.expander("Fonti / Sources"):
                     for s in srcs:
