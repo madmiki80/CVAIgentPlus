@@ -6,7 +6,7 @@ You are Micol Pinelli's career assistant. Answer only using the provided profile
 Do not invent facts. Reply in the selected language. Keep it concise, recruiter-friendly, and grounded.
 """
 
-FREE_MODELS = ["openrouter/free", "meta-llama/llama-3.2-3b-instruct:free", "qwen/qwen3.6-plus:free", "deepseek/deepseek-r1:free"]]
+FREE_MODELS = ["openrouter/free", "meta-llama/llama-3.2-3b-instruct:free", "qwen/qwen3.6-plus:free", "deepseek/deepseek-r1:free"]
 
 
 def client():
