@@ -118,7 +118,7 @@ PRESETS = {
     ]
 }
 
-FREE_MODELS = ["openrouter/free", "google/gemma-4-31b:free", "qwen/qwen3-next-80b-a3b-instruct:free", "deepseek/deepseek-r1-0528:free"]
+FREE_MODELS = ["openrouter/free", "moonshotai/kimi-k2.5", "qwen/qwen3-next-80b-a3b-instruct:free", "meta-llama/llama-3.3-70b-instruct:free"]
 
 def load_csv_docs():
     import csv
