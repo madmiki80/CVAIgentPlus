@@ -12,7 +12,7 @@ def render_chat_tab(st_session_state, vs, model, language):
     if q:
         st_session_state.messages.append({"role": "user", "content": q})
          with st.chat_message("user"):
-         st.markdown(q)
+             st.markdown(q)
          ctx, srcs = build_context(vs, q)
          with st.chat_message("assistant"):
             with st.spinner("Sto rispondendo..." if language == "Italiano" else "Thinking..."):
