@@ -6,7 +6,7 @@ You are Micol Pinelli's career assistant. Answer only using the provided profile
 Do not invent facts. Reply in the selected language. Keep it concise, recruiter-friendly, and grounded.
 """
 
-FREE_MODELS = ["openrouter/free"]  # , "meta-llama/llama-3.2-3b-instruct:free", "qwen/qwen3.6-plus:free", "deepseek/deepseek-r1:free"]
+FREE_MODELS = ["openrouter/free", "meta-llama/llama-3.2-3b-instruct:free", "qwen/qwen3.6-plus:free", "deepseek/deepseek-r1:free"]]
 
 
 def client():
@@ -49,7 +49,7 @@ def llm_answer(question, language, model, context):
 def match_jd(job_description, language, model, context):
     c = client()
     if c is None:
-        return "Imposta OPENROUTER_API_KEY (o OPENAI_API_KEY) per usare l'app.", ""
+        return "Imposta OPENROUTER_API_KEY per usare l'app.", ""
     prompt = (
         f"Valuta il fit del profilo di Micol Pinelli rispetto a questa job description.\n"
         f"Usa solo il contesto fornito.\n\nCONTESTO:\n{context}\n\nJOB DESCRIPTION:\n{job_description}\n\n"
