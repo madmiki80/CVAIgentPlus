@@ -11,8 +11,10 @@ def render_chat_tab(st_session_state, vs, model, language):
         del st_session_state.pending
     if q:
         st_session_state.messages.append({"role": "user", "content": q})
-        ctx, srcs = build_context(vs, q)
-        with st.chat_message("assistant"):
+         with st.chat_message("user"):
+         st.markdown(q)
+         ctx, srcs = build_context(vs, q)
+         with st.chat_message("assistant"):
             with st.spinner("Sto rispondendo..." if language == "Italiano" else "Thinking..."):
                 answer, used_model = llm_answer(q, language, model, ctx)
                 st.markdown(answer)
