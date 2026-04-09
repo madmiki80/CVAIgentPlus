@@ -241,7 +241,7 @@ ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API proje
 if len(st.session_state.messages) == 0:
     st.info("Usa le domande rapide a sinistra oppure scrivi una domanda.")
 
-chat_tab, timeline_tab, skills_tab, match_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Job Match"])
+chat_tab, timeline_tab, skills_tab, match_tab = st.tabs(["Chat", "Timeline", "Skill Map"])
 
 with chat_tab:
     render_chat_tab(st.session_state, vs, model, st.session_state.language)
