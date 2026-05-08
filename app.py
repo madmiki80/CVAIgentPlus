@@ -219,7 +219,6 @@ with st.sidebar:
     st.subheader("Domande rapide")
     for i, q in enumerate(PRESETS[st.session_state.language]):
         if st.button(q, key=f"p_{i}", use_container_width=True):
-            st.session_state.messages.append({"role": "user", "content": q})
             st.session_state.pending = q
             st.rerun()
     st.markdown("---")
