@@ -8,7 +8,7 @@ def render_chat_tab(st_session_state, vs, model, language):
     q = st.chat_input("Fai una domanda sul CV..." if language == "Italiano" else "Ask about the CV...", key="chat_input")
     if q:
         st.session_state.pending = q
-        st.experimental_rerun()
+        st.rerun()
 
     if getattr(st_session_state, 'pending', None):
         q = st_session_state.pending
