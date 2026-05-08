@@ -5,6 +5,7 @@ def render_chat_tab(st_session_state, vs, model, language):
     for msg in st_session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
+
     q = st.chat_input("Fai una domanda sul CV..." if language == "Italiano" else "Ask about the CV...", key="chat_input")
     if q:
         st.session_state.pending = q
@@ -12,6 +13,13 @@ def render_chat_tab(st_session_state, vs, model, language):
 
     if getattr(st_session_state, 'pending', None):
         q = st_session_state.pending
+        st_session_state.messages.append({"role": "user", "content": q})
+        del st.session_state.pending
+        st.session_state.answering = q
+        st.rerun()
+
+    if getattr(st_session_state, 'answering', None):
+        q = st_session_state.answering
         ctx, srcs = build_context(vs, q)
         with st.chat_message("assistant"):
             with st.spinner("Sto rispondendo..." if language == "Italiano" else "Thinking..."):
@@ -21,7 +29,6 @@ def render_chat_tab(st_session_state, vs, model, language):
                 with st.expander("Fonti / Sources"):
                     for s in srcs:
                         st.code(s)
-        st_session_state.messages.append({"role": "user", "content": q})
         st_session_state.messages.append({"role": "assistant", "content": answer})
-        del st.session_state.pending
+        del st.session_state.answering
         st.rerun()
