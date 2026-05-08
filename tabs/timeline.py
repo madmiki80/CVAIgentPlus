@@ -1,10 +1,10 @@
 import streamlit as st
 
-def render_timeline_tab(TIMELINE):
-    st.subheader("Career Timeline")
+def render_timeline_tab(TIMELINE, language):
+    st.subheader("Career Timeline" if language == "English" else "Percorso Professionale")
 
     htmlcontent = '<div class="timeline-container">'
-    for i, (period, role, company, summary) in enumerate(TIMELINE):
+    for i, (period, role, company, summary) in enumerate(TIMELINE[language]):
         htmlcontent += f'''
         <div class="timeline-item">
           <div class="timeline-content">

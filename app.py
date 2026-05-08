@@ -45,13 +45,22 @@ PROFILE_FACTS = {
     ]
 }
 
-TIMELINE = [
-    ("2024 - oggi", "PM e Analista Soluzioni Custom per integrazione RPA con AI", "Centro Software S.p.A", "Analisi e sviluppo soluzioni custom su ERP, RPA e BPM con AI; supporto al cliente."),
-    ("2019 - 2024", "PM e Analista Soluzioni Custom ERP", "Centro Software S.p.A", "Analisi e sviluppo soluzioni custom ERP, app reception multi-sede, backoffice presenze Cloud, tutoraggio stage."),
-    ("2017 - 2019", "PM e Analista", "Touring Club Italiano (Touring Editore)", "Nuovo e-commerce, DEM targeting, API e flussi contenuti verso siti e app."),
-    ("2008 - 2016", "PM, Web Designer, DB Admin e Analyst", "Touring Club Italiano", "Portali web, archivio digitale, CRM/BI, DB turistico-editoriale, help desk di secondo livello."),
-    ("2006 - 2008", "Web Developer", "Dinamys S.r.l", "ASP/VBScript/JavaScript, SQL Server, Java/JSP/Ajax/XML/MySQL, batch e task.")
-]
+TIMELINE = {
+    "Italiano": [
+        ("2024 - oggi", "PM e Analista Soluzioni Custom per integrazione RPA con AI", "Centro Software S.p.A", "Analisi e sviluppo soluzioni custom su ERP, RPA e BPM con AI; supporto al cliente."),
+        ("2019 - 2024", "PM e Analista Soluzioni Custom ERP", "Centro Software S.p.A", "Analisi e sviluppo soluzioni custom ERP, app reception multi-sede, backoffice presenze Cloud, tutoraggio stage."),
+        ("2017 - 2019", "PM e Analista", "Touring Club Italiano (Touring Editore)", "Nuovo e-commerce, DEM targeting, API e flussi contenuti verso siti e app."),
+        ("2008 - 2016", "PM, Web Designer, DB Admin e Analyst", "Touring Club Italiano", "Portali web, archivio digitale, CRM/BI, DB turistico-editoriale, help desk di secondo livello."),
+        ("2006 - 2008", "Web Developer", "Dinamys S.r.l", "ASP/VBScript/JavaScript, SQL Server, Java/JSP/Ajax/XML/MySQL, batch e task.")
+    ],
+    "English": [
+        ("2024 - present", "PM & Custom Solutions Analyst for RPA-AI Integration", "Centro Software S.p.A", "Analysis and development of custom solutions for ERP, RPA and BPM with AI; customer support."),
+        ("2019 - 2024", "PM & Custom ERP Solutions Analyst", "Centro Software S.p.A", "Analysis and development of custom ERP solutions, multi-site reception app, Cloud attendance backoffice, internship tutoring."),
+        ("2017 - 2019", "PM & Analyst", "Touring Club Italiano (Touring Editore)", "New e-commerce, DEM targeting, API and content flows to websites and apps."),
+        ("2008 - 2016", "PM, Web Designer, DB Admin & Analyst", "Touring Club Italiano", "Web portals, digital archive, CRM/BI, tourism-publishing DB, second-level help desk."),
+        ("2006 - 2008", "Web Developer", "Dinamys S.r.l", "ASP/VBScript/JavaScript, SQL Server, Java/JSP/Ajax/XML/MySQL, batch and tasks.")
+    ]
+}
 
 from collections import defaultdict
 import re
@@ -246,7 +255,7 @@ with chat_tab:
     render_chat_tab(st.session_state, vs, model, st.session_state.language)
 
 with timeline_tab:
-    render_timeline_tab(TIMELINE)
+    render_timeline_tab(TIMELINE, st.session_state.language)
     
 with skills_tab:
     render_skills_tab(SKILLS, PROFILE_FACTS, st.session_state.language)
