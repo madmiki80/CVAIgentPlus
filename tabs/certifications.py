@@ -53,12 +53,12 @@ def render_certifications_tab(language):
     st.subheader("Certificazioni" if language == "Italiano" else "Certifications")
 
     for authority, items in CERTIFICATIONS.items():
-        chips = "".join(f'<span class="chip">{c}</span>' for c in items)
+        items_html = "".join(f'<li>{c}</li>' for c in items)
         st.markdown(
             f"""
             <div class="panel">
                 <div style="font-weight:700; font-size:1.1rem; color:#4f46e5; margin-bottom:0.45rem">{authority}</div>
-                <div>{chips}</div>
+                <ul style="margin:0; padding-left:1.2rem; color:#1e293b; line-height:1.7">{items_html}</ul>
             </div>
             """,
             unsafe_allow_html=True,

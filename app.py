@@ -2,6 +2,7 @@ import os
 import json
 from pathlib import Path
 import streamlit as st
+from streamlit.components.v1 import html as st_html
 from langchain_community.document_loaders import Docx2txtLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -13,6 +14,7 @@ from tabs.chat import render_chat_tab
 from tabs.timeline import render_timeline_tab
 from tabs.skills import render_skills_tab
 from tabs.certifications import render_certifications_tab
+from tabs.github_projects import render_github_projects_tab
 from tabs.match import render_match_tab
 from api import llm_answer, match_jd, build_context
 
@@ -188,7 +190,7 @@ def reindex_data():
         shutil.rmtree(INDEX_DIR)
     global vs, ctx, srcs
     vs = load_vectorstore()
-    ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management")
+    ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
 
 
 def choose_model():
@@ -206,6 +208,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 if "language" not in st.session_state:
     st.session_state.language = "Italiano"
+if "tab_index" not in st.session_state:
+    st.session_state.tab_index = 0
 
 with st.sidebar:
     st.title("⚙️ CVAIgent")
@@ -218,6 +222,7 @@ with st.sidebar:
     st.markdown("---")
     if st.button("🧹 Nuova chat / New chat", use_container_width=True, key="new_chat_button"):
         st.session_state.messages = []
+        st.session_state.switch_to_chat = True
         st.rerun()
     if st.button("🔄 Reindex Data / Reindicizza Dati", use_container_width=True, key="reindex_button"):
         with st.spinner("Reindicizzando dati..." if st.session_state.language == "Italiano" else "Reindexing data..."):
@@ -245,12 +250,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 vs = load_vectorstore()
-ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management")
+ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
 
 if len(st.session_state.messages) == 0:
     st.info("Usa le domande rapide a sinistra oppure scrivi una domanda.")
 
-chat_tab, timeline_tab, skills_tab, cert_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications"])
+chat_tab, timeline_tab, skills_tab, cert_tab, github_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications", "GitHub"])
 
 with chat_tab:
     render_chat_tab(st.session_state, vs, model, st.session_state.language)
@@ -263,6 +268,23 @@ with skills_tab:
 
 with cert_tab:
     render_certifications_tab(st.session_state.language)
+
+with github_tab:
+    render_github_projects_tab(st.session_state.language)
+
+if st.session_state.pop("switch_to_chat", False):
+    st_html(
+        """
+        <script>
+        function goChat() {
+            var tabs = window.parent.document.querySelectorAll('button[data-baseweb="tab"]');
+            if (tabs && tabs[0]) tabs[0].click();
+        }
+        setTimeout(goChat, 100);
+        </script>
+        """,
+        height=0,
+    )
         
         
 
