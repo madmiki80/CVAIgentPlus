@@ -2,6 +2,7 @@ import os
 import json
 from pathlib import Path
 import streamlit as st
+from streamlit.components.v1 import html as st_html
 from langchain_community.document_loaders import Docx2txtLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -206,6 +207,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 if "language" not in st.session_state:
     st.session_state.language = "Italiano"
+if "tab_index" not in st.session_state:
+    st.session_state.tab_index = 0
 
 with st.sidebar:
     st.title("⚙️ CVAIgent")
@@ -218,6 +221,7 @@ with st.sidebar:
     st.markdown("---")
     if st.button("🧹 Nuova chat / New chat", use_container_width=True, key="new_chat_button"):
         st.session_state.messages = []
+        st.session_state.switch_to_chat = True
         st.rerun()
     if st.button("🔄 Reindex Data / Reindicizza Dati", use_container_width=True, key="reindex_button"):
         with st.spinner("Reindicizzando dati..." if st.session_state.language == "Italiano" else "Reindexing data..."):
@@ -263,6 +267,20 @@ with skills_tab:
 
 with cert_tab:
     render_certifications_tab(st.session_state.language)
+
+if st.session_state.pop("switch_to_chat", False):
+    st_html(
+        """
+        <script>
+        function goChat() {
+            var tabs = window.parent.document.querySelectorAll('button[data-baseweb="tab"]');
+            if (tabs && tabs[0]) tabs[0].click();
+        }
+        setTimeout(goChat, 100);
+        </script>
+        """,
+        height=0,
+    )
         
         
 
