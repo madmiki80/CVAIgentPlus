@@ -14,6 +14,7 @@ from tabs.chat import render_chat_tab
 from tabs.timeline import render_timeline_tab
 from tabs.skills import render_skills_tab
 from tabs.certifications import render_certifications_tab
+from tabs.github_projects import render_github_projects_tab
 from tabs.match import render_match_tab
 from api import llm_answer, match_jd, build_context
 
@@ -254,7 +255,7 @@ ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API proje
 if len(st.session_state.messages) == 0:
     st.info("Usa le domande rapide a sinistra oppure scrivi una domanda.")
 
-chat_tab, timeline_tab, skills_tab, cert_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications"])
+chat_tab, timeline_tab, skills_tab, cert_tab, github_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications", "🐙 GitHub"])
 
 with chat_tab:
     render_chat_tab(st.session_state, vs, model, st.session_state.language)
@@ -267,6 +268,9 @@ with skills_tab:
 
 with cert_tab:
     render_certifications_tab(st.session_state.language)
+
+with github_tab:
+    render_github_projects_tab(st.session_state.language)
 
 if st.session_state.pop("switch_to_chat", False):
     st_html(
