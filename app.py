@@ -189,7 +189,7 @@ def reindex_data():
         shutil.rmtree(INDEX_DIR)
     global vs, ctx, srcs
     vs = load_vectorstore()
-    ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management")
+ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
 
 
 def choose_model():
@@ -249,7 +249,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 vs = load_vectorstore()
-ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management")
+ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
 
 if len(st.session_state.messages) == 0:
     st.info("Usa le domande rapide a sinistra oppure scrivi una domanda.")
