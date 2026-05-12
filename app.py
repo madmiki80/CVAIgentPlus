@@ -255,7 +255,7 @@ ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API proje
 if len(st.session_state.messages) == 0:
     st.info("Usa le domande rapide a sinistra oppure scrivi una domanda.")
 
-chat_tab, timeline_tab, skills_tab, cert_tab, github_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications", "🐙 GitHub"])
+chat_tab, timeline_tab, skills_tab, cert_tab, github_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications", "GitHub"])
 
 with chat_tab:
     render_chat_tab(st.session_state, vs, model, st.session_state.language)
