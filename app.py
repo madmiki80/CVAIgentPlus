@@ -189,7 +189,7 @@ def reindex_data():
         shutil.rmtree(INDEX_DIR)
     global vs, ctx, srcs
     vs = load_vectorstore()
-ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
+    ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
 
 
 def choose_model():
