@@ -14,6 +14,10 @@ div[data-testid="stChatMessageContent"] * {
     color: #111827 !important;
 }
 
+div[data-testid="stMarkdownContainer"] {
+    margin-top: 0.75rem !important;
+}
+
 .stChatMessage {
     background: #ffffff;
 }
@@ -306,11 +310,13 @@ div[data-testid="stChatMessageContent"] * {
 
 .strength-chip {
     display: inline-block;
-    background: linear-gradient(135deg, #fef9c3, #fef3c7);
-    color: #92400e;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1e293b;
     font-size: 0.85rem;
+    font-weight: 600;
     padding: 0.4rem 0.9rem;
     border-radius: 10px;
-    border: 1px solid #fde68a;
+    border: 1px solid #d97706;
     line-height: 1.4;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
