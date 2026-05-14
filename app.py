@@ -204,7 +204,9 @@ def reindex_data():
 
 
 def choose_model():
-    return st.sidebar.selectbox("Free model", FREE_MODELS, index=0, key="model_select")
+    lang = st.session_state.get("language", "Italiano")
+    label = "Modello gratuito" if lang == "Italiano" else "Free model"
+    return st.sidebar.selectbox(label, FREE_MODELS, index=0, key="model_select")
 
 
 def badges(items):
@@ -229,6 +231,7 @@ with st.sidebar:
         st.session_state.language = "English" if st.session_state.language == "Italiano" else "Italiano"
         st.rerun()
     model = choose_model()
+    model_label = "Modello" if st.session_state.language == "Italiano" else "Model"
     st.markdown("---")
     if st.button("🧹 Nuova chat / New chat", use_container_width=True, key="new_chat_button"):
         st.session_state.messages = []
@@ -241,13 +244,13 @@ with st.sidebar:
         st.rerun()
     #st.download_button("💾 Esporta cronologia JSON", json.dumps(st.session_state.messages, ensure_ascii=False, indent=2), "chat_history.json", "application/json", use_container_width=True)
     st.markdown("---")
-    st.subheader("Domande rapide")
+    st.subheader("Domande rapide" if st.session_state.language == "Italiano" else "Quick questions")
     for i, q in enumerate(PRESETS[st.session_state.language]):
         if st.button(q, key=f"p_{i}", use_container_width=True):
             st.session_state.pending = q
             st.rerun()
     st.markdown("---")
-    st.caption("Modelli free OpenRouter, response grounded sul CV.")
+    st.caption("Modelli free OpenRouter, risposte basate sul CV." if st.session_state.language == "Italiano" else "Free OpenRouter models, answers grounded on CV.")
 
 _inpho_b64 = base64.b64encode((DATA_DIR / "inphographic.png").read_bytes()).decode()
 st.markdown(f"""
@@ -272,7 +275,7 @@ st.markdown(f"""
   <div class='hero-metric'><div class='hero-metric-icon'>💼</div><div class='hero-metric-label'>{'Esperienza' if st.session_state.language == 'Italiano' else 'Experience'}</div><div class='hero-metric-value'>20+ {('anni' if st.session_state.language == 'Italiano' else 'years')}</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>🌐</div><div class='hero-metric-label'>{'Lingue' if st.session_state.language == 'Italiano' else 'Languages'}</div><div class='hero-metric-value'>3</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>📜</div><div class='hero-metric-label'>{'Certificazioni' if st.session_state.language == 'Italiano' else 'Certifications'}</div><div class='hero-metric-value'>46+</div></div>
-  <div class='hero-metric'><div class='hero-metric-icon'>⭐</div><div class='hero-metric-label'>{'Approvazioni' if st.session_state.language == 'Italiano' else 'Endorsements'}</div><div class='hero-metric-value'>70</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>🤝</div><div class='hero-metric-label'>{'Volontariato' if st.session_state.language == 'Italiano' else 'Volunteering'}</div><div class='hero-metric-value'>1</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>🤖</div><div class='hero-metric-label'>{'AI Model' if st.session_state.language == 'Italiano' else 'AI Model'}</div><div class='hero-metric-value'>OpenRouter</div></div>
 </div>
 """, unsafe_allow_html=True)
