@@ -9,7 +9,6 @@ Agente AI personale con chat bilingue (IT/EN), timeline professionale, skill map
 - **Certificazioni** da Learnn, UiPath, Microsoft, JIRA
 - **Infografica** personale
 - **GitHub Projects** con link ai repository e anteprime
-- **Job Description Match** (analisi fit via LLM)
 - Modello free selezionabile
 - Reindicizzazione dati sotto
 

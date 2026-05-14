@@ -119,7 +119,11 @@ PRESETS = {
         "Quali sono i suoi punti di forza?",
         "Con quali tecnologie ha lavorato?",
         "Scrivi una breve presentazione professionale.",
-        "Ha esperienza in ERP, RPA e AI?"
+        "Ha esperienza in ERP, RPA e AI?",
+        "Che certificazioni ha conseguito?",
+        "Che lingue parla e a che livello?",
+        "Parlami della sua formazione universitaria.",
+        "Cosa dicono di lei le raccomandazioni?",
     ],
     "English": [
         "What are Micol Pinelli's main skills?",
@@ -127,7 +131,11 @@ PRESETS = {
         "What are her strengths?",
         "Which technologies has she worked with?",
         "Write a short professional summary.",
-        "Does she have experience in ERP, RPA, and AI?"
+        "Does she have experience in ERP, RPA, and AI?",
+        "What certifications has she earned?",
+        "Which languages does she speak and at what level?",
+        "Tell me about her university education.",
+        "What do recommendations say about her?",
     ]
 }
 
@@ -240,7 +248,7 @@ with st.sidebar:
     st.markdown("---")
     st.caption("Modelli free OpenRouter, response grounded sul CV.")
 
-st.markdown("<div class='hero'><h1>💼 Micol Pinelli CVAIgent</h1><p>Chat bilingue con modelli free, timeline professionale, skill map e job match.</p></div>", unsafe_allow_html=True)
+st.markdown("<div class='hero'><h1>💼 Micol Pinelli CVAIgent</h1><p>Chat bilingue con modelli free, timeline professionale, skill map, certificazioni e infografica.</p></div>", unsafe_allow_html=True)
 st.markdown("""
 <div class='metric-grid'>
   <div class='card metric'><div class='label'>Core</div><div class='value'>ERP · RPA · BPM · AI</div></div>
