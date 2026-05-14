@@ -217,11 +217,15 @@ div[data-testid="stChatMessageContent"] * {
 .skill-metric {
     background: white;
     border-radius: 12px;
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     border: 1px solid #e9ecef;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-metric-value {
@@ -298,50 +302,6 @@ div[data-testid="stChatMessageContent"] * {
 .skill-chip:hover {
     background: #e2e8f0;
     border-color: #cbd5e1;
-}
-
-.endorsement-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-    padding: 0.3rem 0;
-}
-
-.endorsement-label {
-    width: 140px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #334155;
-    text-align: right;
-    flex-shrink: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.endorsement-bar-track {
-    flex: 1;
-    height: 8px;
-    background: #f1f5f9;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.endorsement-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
-    border-radius: 4px;
-    transition: width 0.3s ease;
-}
-
-.endorsement-count {
-    width: 32px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #64748b;
-    text-align: left;
-    flex-shrink: 0;
 }
 
 .strength-chip {

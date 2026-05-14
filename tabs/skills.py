@@ -90,7 +90,7 @@ def render_skills_tab(SKILLS, PROFILE_FACTS, language):
     total_endorsements = sum(endorsements.values())
 
     # --- Metric cards ---
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown(
             f"<div class='skill-metric'><div class='skill-metric-value'>{total_skills}</div>"
@@ -107,14 +107,6 @@ def render_skills_tab(SKILLS, PROFILE_FACTS, language):
         st.markdown(
             f"<div class='skill-metric'><div class='skill-metric-value'>{len(grouped)}</div>"
             f"<div class='skill-metric-label'>{t('Categorie', 'Categories')}</div></div>",
-            unsafe_allow_html=True,
-        )
-    with col4:
-        top_skill = endorsements.most_common(1)
-        top_label = top_skill[0][0] if top_skill else "-"
-        st.markdown(
-            f"<div class='skill-metric'><div class='skill-metric-value' style='font-size:1rem'>{top_label}</div>"
-            f"<div class='skill-metric-label'>{t('Più approvata', 'Top endorsed')}</div></div>",
             unsafe_allow_html=True,
         )
 
@@ -147,29 +139,6 @@ def render_skills_tab(SKILLS, PROFILE_FACTS, language):
             """,
             unsafe_allow_html=True,
         )
-
-    # --- Top endorsed ---
-    st.markdown(
-        f"<div class='skill-section-title'>{t('Competenze più approvate', 'Most endorsed skills')}</div>",
-        unsafe_allow_html=True,
-    )
-    top_skills = endorsements.most_common(15)
-    if top_skills:
-        max_count = top_skills[0][1] if top_skills else 1
-        for skill_name, count in top_skills:
-            pct = count / max_count * 100
-            st.markdown(
-                f"""
-                <div class='endorsement-row'>
-                    <div class='endorsement-label'>{skill_name}</div>
-                    <div class='endorsement-bar-track'>
-                        <div class='endorsement-bar-fill' style='width:{pct}%'></div>
-                    </div>
-                    <div class='endorsement-count'>{count}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
 
     # --- Strengths ---
     st.markdown(
