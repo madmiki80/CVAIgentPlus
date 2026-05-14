@@ -275,7 +275,7 @@ st.markdown(f"""
   <div class='hero-metric'><div class='hero-metric-icon'>🌐</div><div class='hero-metric-label'>{'Lingue' if st.session_state.language == 'Italiano' else 'Languages'}</div><div class='hero-metric-value'>3</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>📜</div><div class='hero-metric-label'>{'Certificazioni' if st.session_state.language == 'Italiano' else 'Certifications'}</div><div class='hero-metric-value'>46+</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>🤝</div><div class='hero-metric-label'>{'Volontariato' if st.session_state.language == 'Italiano' else 'Volunteering'}</div><div class='hero-metric-value'>1</div></div>
-  <div class='hero-metric'><div class='hero-metric-icon'>🤖</div><div class='hero-metric-label'>{'AI Models' if st.session_state.language == 'Italiano' else 'AI Models'}</div><div class='hero-metric-value' style='font-size:1rem'>OpenAI · Claude · Free</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>🧠</div><div class='hero-metric-label'>{'AI Models' if st.session_state.language == 'Italiano' else 'AI Models'}</div><div class='hero-metric-value' style='font-size:1rem'>OpenAI · Claude · Free</div></div>
 </div>
 """, unsafe_allow_html=True)
 
