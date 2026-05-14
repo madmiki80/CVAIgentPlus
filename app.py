@@ -140,7 +140,7 @@ PRESETS = {
     ]
 }
 
-FREE_MODELS = ["openrouter/free", "moonshotai/kimi-k2.5", "qwen/qwen3-next-80b-a3b-instruct:free", "meta-llama/llama-3.3-70b-instruct:free"]
+FREE_MODELS = ["openrouter/free", "moonshotai/kimi-k2.5", "qwen/qwen3-next-80b-a3b-instruct:free"]
 
 def load_csv_docs():
     import csv
