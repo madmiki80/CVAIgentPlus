@@ -249,6 +249,85 @@ div[data-testid="stMarkdownContainer"] {
 .skill-metric-value {
     font-size: 1.8rem;
     font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.skill-metric-label {
+    font-size: 0.8rem;
+    color: #475569;
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.skill-category-card {
+    background: #ffffff !important;
+    border-radius: 12px;
+    padding: 1.2rem 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.15s ease;
+}
+
+.skill-category-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.skill-category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.skill-count-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.skill-category-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.skill-chip {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    line-height: 1.4;
+}
+
+.skill-chip:hover {
+    background: #e2e8f0;
+}
+
+.strength-chip {
+    display: inline-block;
+    background: #fef9c3 !important;
+    color: #0f172a !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: 10px;
+    border: 2px solid #facc15;
+    line-height: 1.4;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.skill-metric-value {
+    font-size: 1.8rem;
+    font-weight: 800;
     color: #1e293b;
     line-height: 1.2;
 }

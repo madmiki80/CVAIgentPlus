@@ -74,7 +74,10 @@ def _load_endorsements():
 def render_skills_tab(SKILLS, PROFILE_FACTS, language):
     t = lambda it, en: it if language == "Italiano" else en
 
-    st.subheader(t("Mappa delle Competenze", "Skill Map"))
+    st.markdown(
+        f"<div style='font-size:1.15rem;font-weight:700;color:#ffffff;margin:0 0 1rem 0;padding:0.5rem 1rem;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:10px'>{t('Mappa delle Competenze', 'Skill Map')}</div>",
+        unsafe_allow_html=True,
+    )
 
     # --- Load data ---
     raw_skills = _load_csv("Skills.csv")
