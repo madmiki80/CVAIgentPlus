@@ -264,10 +264,13 @@ div[data-testid="stMarkdownContainer"] {
 .skill-section-title {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #0f172a;
     margin: 1.5rem 0 0.75rem 0;
-    padding-bottom: 0.4rem;
+    padding: 0.4rem 0.75rem;
     border-bottom: 2px solid #e2e8f0;
+    background: rgba(255,255,255,0.85);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
 }
 
 .skill-category-card {
