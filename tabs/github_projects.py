@@ -40,14 +40,17 @@ PROJECTS = [
 
 def render_github_projects_tab(language):
     gh_icon = _icon_html()
-    st.subheader(f"Progetti GitHub" if language == "Italiano" else "GitHub Projects")
+    st.subheader("Progetti GitHub" if language == "Italiano" else "GitHub Projects")
+    preview_text = "Anteprima" if language == "Italiano" else "Preview"
+    not_released = "Anteprima ancora non rilasciata" if language == "Italiano" else "Preview not yet available"
 
     for p in PROJECTS:
         preview_html = ""
+        label = not_released if not p["preview"] else f"🚀 {preview_text}"
         if p["preview"]:
-            preview_html = f'<a href="{p["preview"]}" target="_blank" class="project-link">🚀 {p["preview_label"]}</a>'
+            preview_html = f'<a href="{p["preview"]}" target="_blank" class="project-link">{label}</a>'
         else:
-            preview_html = f'<span style="color:#94a3b8;font-size:0.9rem">⏳ {p["preview_label"]}</span>'
+            preview_html = f'<span style="color:#94a3b8;font-size:0.9rem">⏳ {label}</span>'
 
         st.markdown(
             f"""

@@ -231,7 +231,6 @@ with st.sidebar:
         st.session_state.language = "English" if st.session_state.language == "Italiano" else "Italiano"
         st.rerun()
     model = choose_model()
-    model_label = "Modello" if st.session_state.language == "Italiano" else "Model"
     st.markdown("---")
     if st.button("🧹 Nuova chat / New chat", use_container_width=True, key="new_chat_button"):
         st.session_state.messages = []
@@ -276,7 +275,7 @@ st.markdown(f"""
   <div class='hero-metric'><div class='hero-metric-icon'>🌐</div><div class='hero-metric-label'>{'Lingue' if st.session_state.language == 'Italiano' else 'Languages'}</div><div class='hero-metric-value'>3</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>📜</div><div class='hero-metric-label'>{'Certificazioni' if st.session_state.language == 'Italiano' else 'Certifications'}</div><div class='hero-metric-value'>46+</div></div>
   <div class='hero-metric'><div class='hero-metric-icon'>🤝</div><div class='hero-metric-label'>{'Volontariato' if st.session_state.language == 'Italiano' else 'Volunteering'}</div><div class='hero-metric-value'>1</div></div>
-  <div class='hero-metric'><div class='hero-metric-icon'>🤖</div><div class='hero-metric-label'>{'AI Model' if st.session_state.language == 'Italiano' else 'AI Model'}</div><div class='hero-metric-value'>OpenRouter</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>🤖</div><div class='hero-metric-label'>{'AI Models' if st.session_state.language == 'Italiano' else 'AI Models'}</div><div class='hero-metric-value' style='font-size:1rem'>OpenAI · Claude · Free</div></div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -284,7 +283,7 @@ vs = load_vectorstore()
 ctx, srcs = build_context(vs, "skills experience strengths ERP RPA BPM API project management GitHub repository projects AsteroidChecker CVAigentPlus BANDIAI")
 
 if len(st.session_state.messages) == 0:
-    st.info("Usa le domande rapide a sinistra oppure scrivi una domanda.")
+    st.info("Usa le domande rapide a sinistra oppure scrivi una domanda." if st.session_state.language == "Italiano" else "Use the quick questions on the left or type a question.")
 
 chat_tab, timeline_tab, skills_tab, cert_tab, github_tab, infographic_tab = st.tabs(["Chat", "Timeline", "Skill Map", "Certificazioni" if st.session_state.language == "Italiano" else "Certifications", "GitHub", "Infografica" if st.session_state.language == "Italiano" else "Infographic"])
 
