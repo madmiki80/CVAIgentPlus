@@ -142,7 +142,7 @@ def render_skills_tab(SKILLS, PROFILE_FACTS, language):
 
     # --- Strengths ---
     st.markdown(
-        f"<div class='skill-section-title'>{t('Punti di forza', 'Strengths')}</div>",
+        f"<div style='font-size:1.15rem;font-weight:700;color:#ffffff;margin:1.5rem 0 0.75rem 0;padding:0.5rem 1rem;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:10px'>{t('Punti di forza', 'Strengths')}</div>",
         unsafe_allow_html=True,
     )
     strengths_html = "".join(

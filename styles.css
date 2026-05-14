@@ -261,16 +261,7 @@ div[data-testid="stMarkdownContainer"] {
     letter-spacing: 0.05em;
 }
 
-.skill-section-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 1.5rem 0 0.75rem 0;
-    padding: 0.5rem 1rem;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-    background: linear-gradient(135deg, #4f46e5, #7c3aed);
-    border-radius: 10px;
-}
+
 
 .skill-category-card {
     background: white;
