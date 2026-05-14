@@ -1,5 +1,6 @@
 import os
 import json
+import base64
 from pathlib import Path
 import streamlit as st
 from streamlit.components.v1 import html as st_html
@@ -248,13 +249,31 @@ with st.sidebar:
     st.markdown("---")
     st.caption("Modelli free OpenRouter, response grounded sul CV.")
 
-st.markdown("<div class='hero'><h1>💼 Micol Pinelli CVAIgent</h1><p>Chat bilingue con modelli free, timeline professionale, skill map, certificazioni e infografica.</p></div>", unsafe_allow_html=True)
-st.markdown("""
+_inpho_b64 = base64.b64encode((DATA_DIR / "inphographic.png").read_bytes()).decode()
+st.markdown(f"""
+<div class='hero' style='
+    background-image: url("data:image/png;base64,{_inpho_b64}");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+'>
+  <div class='hero-overlay'></div>
+  <div class='hero-content'>
+    <h1>💼 Micol Pinelli</h1>
+    <p class='hero-sub'>{'Analista ERP · PM · RPA · BPM · AI Agent' if st.session_state.language == 'Italiano' else 'ERP Analyst · PM · RPA · BPM · AI Agent'}</p>
+    <p class='hero-desc'>{'Chat bilingue grounded sul CV con AI, timeline professionale, skill map, certificazioni e infografica.' if st.session_state.language == 'Italiano' else 'Bilingual AI chat grounded on CV, career timeline, skill map, certifications, and infographic.'}</p>
+  </div>
+</div>
+""", unsafe_allow_html=True)
+st.markdown(f"""
 <div class='metric-grid'>
-  <div class='card metric'><div class='label'>Core</div><div class='value'>ERP · RPA · BPM · AI</div></div>
-  <div class='card metric'><div class='label'>Background</div><div class='value'>PM · Analyst · Dev</div></div>
-  <div class='card metric'><div class='label'>Languages</div><div class='value'>IT / EN</div></div>
-  <div class='card metric'><div class='label'>LLM</div><div class='value'>OpenRouter Free</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>🎯</div><div class='hero-metric-label'>{'Competenze' if st.session_state.language == 'Italiano' else 'Skills'}</div><div class='hero-metric-value'>59+</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>💼</div><div class='hero-metric-label'>{'Esperienza' if st.session_state.language == 'Italiano' else 'Experience'}</div><div class='hero-metric-value'>20+ {('anni' if st.session_state.language == 'Italiano' else 'years')}</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>🌐</div><div class='hero-metric-label'>{'Lingue' if st.session_state.language == 'Italiano' else 'Languages'}</div><div class='hero-metric-value'>3</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>📜</div><div class='hero-metric-label'>{'Certificazioni' if st.session_state.language == 'Italiano' else 'Certifications'}</div><div class='hero-metric-value'>46+</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>⭐</div><div class='hero-metric-label'>{'Approvazioni' if st.session_state.language == 'Italiano' else 'Endorsements'}</div><div class='hero-metric-value'>70</div></div>
+  <div class='hero-metric'><div class='hero-metric-icon'>🤖</div><div class='hero-metric-label'>{'AI Model' if st.session_state.language == 'Italiano' else 'AI Model'}</div><div class='hero-metric-value'>OpenRouter</div></div>
 </div>
 """, unsafe_allow_html=True)
 
